@@ -1,24 +1,63 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import { Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './auth';
+import { Login } from './components/Login';
+import { RequireAuth } from './components/RequireAuth';
+import Dashboard from './components/Dashboard';
+import { RequireAnonymous } from './components/RequireAnonymous';
+import ForgetPassword from './components/ForgetPassword';
+import Data from './components/Data';
+import OpenData from './components/OpenData';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <AuthProvider>
+      <Routes>
+        <Route
+          path='/login'
+          element={
+            <RequireAnonymous>
+              <Login />
+            </RequireAnonymous>
+          } 
+        />
+        <Route 
+          path='/forgetpassword'
+          element={
+            <RequireAnonymous>
+              <ForgetPassword />
+            </RequireAnonymous>
+          }
+        />
+        <Route
+          path='/dashboard'
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          } 
+        />
+        <Route 
+          path='/data'
+          element={
+            <RequireAuth>
+              <Data />
+            </RequireAuth>
+          }
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Route
+            path=':dataName'
+            element={
+              <RequireAuth >
+                <OpenData />
+              </RequireAuth>
+            }
+          />
+        </Route>
+      </Routes>
+    </AuthProvider>
   );
 }
 
