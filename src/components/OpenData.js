@@ -29,7 +29,7 @@ const OpenData = () => {
             const prevData = getPrevData.data.data
             setPrevillageData(prevData)
             try {
-                const getAllData = await axios.get(`http://localhost:8080/${prevData[0]['nameDb']}/${prevData[0]['url']}`,
+                const getAllData = await axios.get(`http://localhost:8080${prevData[0]['url']}`,
                     {
                         headers: { "Authorization": `Bearer ${auth.user[0].token}` }
                     }
