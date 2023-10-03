@@ -50,7 +50,7 @@ export const Login = () => {
                                         <InputGroup hasValidation>
                                             <Form.Control
                                                 type="text"
-                                                placeholder="your.email@unper.ac.id"
+                                                placeholder="Your Username"
                                                 name='username'
                                                 value={username}
                                                 onChange={(e) => { setUsername(e.target.value) }}
