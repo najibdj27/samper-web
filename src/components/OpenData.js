@@ -165,7 +165,7 @@ const OpenData = () => {
                                                             (
                                                                 <td className='text-center'>
                                                                     <Button variant='warning'>
-                                                                        <i class="bi bi-pencil-square"></i>
+                                                                        <i className="bi bi-pencil-square"></i>
                                                                     </Button>
                                                                 </td>
                                                             )

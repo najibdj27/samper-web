@@ -51,7 +51,7 @@ const Data = () => {
                                                 {
                                                     dataList.map((data, index) => (
                                                         <Accordion.Item key={index} eventKey={index}>
-                                                            <Accordion.Header className='fw-bold'>{data.nameDisplay}</Accordion.Header>
+                                                            <Accordion.Header className='fw-bold text-capitalize'>{data.nameDisplay}</Accordion.Header>
                                                             <Accordion.Body>
                                                                 <div className="d-grid gap-2">
                                                                     <h5>
